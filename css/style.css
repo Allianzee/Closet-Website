@@ -18,38 +18,47 @@ body {
 /* Navbar */
 nav {
   width: 100%;
-  background-color: #1a1a1a;
+  background-color: rgba(26, 26, 26, 0.7); /* semi-transparent black */
   padding: 10px 0;
   box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 10;
 }
 
 .navbar {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  position: relative;
 }
 
+/* Discord button - Cravex style */
 .discord-btn {
   position: absolute;
-  left: 20px;
+  right: 20px;
   top: 50%;
   transform: translateY(-50%);
   padding: 10px 20px;
-  background-color: red;
+  background-color: #5865F2; /* Discord blurple */
   color: white;
   border: none;
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
-  transition: background 0.3s ease;
+  box-shadow: 0 0 8px #5865F2;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .discord-btn:hover {
-  background-color: darkred;
+  background-color: #4752C4;
+  box-shadow: 0 0 15px #4752C4;
 }
 
+/* Nav links */
 .nav-links {
   display: flex;
   gap: 30px;
@@ -57,22 +66,36 @@ nav {
   justify-content: center;
 }
 
+/* Nav links red + animated underline */
 .nav-links a {
-  color: white;
+  color: #ff3300; /* red */
   text-decoration: none;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
   padding: 10px 5px;
-  transition: 0.3s ease;
   position: relative;
+  transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-  text-decoration: underline;
+/* Underline animation on hover */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #ff3300;
+  transition: width 0.3s ease;
+  border-radius: 2px;
 }
 
-/* Hero section */
-.hero {
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Header section */
+header {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -83,14 +106,14 @@ nav {
   background: radial-gradient(circle at center, #660000, #220000);
 }
 
-.hero h1 {
+header h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
   color: #ff3300;
   text-shadow: 0 0 8px #ff1a00;
 }
 
-.hero p {
+header p {
   font-size: 1.25rem;
   color: #ff9999;
   max-width: 600px;
@@ -109,25 +132,15 @@ nav {
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.3s ease;
   user-select: none;
+  display: inline-block;
+  cursor: pointer;
+  margin: 0 auto; /* center */
 }
 
 .btn-download:hover {
   background-color: #b00400;
   box-shadow: 0 0 25px #ff6600;
   transform: scale(1.1);
-  cursor: pointer;
-}
-
-/* Section scroll reveal */
-section.hidden {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* Footer */
@@ -139,15 +152,7 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Button ripple animation */
-@keyframes ripple {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-/* Mobile nav (optional if you add toggle logic later) */
+/* Mobile nav */
 @media (max-width: 768px) {
   .nav-links {
     flex-direction: column;
@@ -163,7 +168,7 @@ footer {
   .discord-btn {
     position: relative;
     transform: none;
-    left: auto;
+    right: auto;
     top: auto;
     margin-bottom: 10px;
   }
