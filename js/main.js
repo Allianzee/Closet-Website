@@ -1,6 +1,6 @@
 // js/main.js
 
-// 1. Fade-in animation on page load
+// Fade-in animation on page load
 document.addEventListener("DOMContentLoaded", () => {
     document.body.style.opacity = 0;
     document.body.style.transition = "opacity 0.8s ease-in-out";
@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// 2. Button ripple effect
-document.querySelectorAll(".btn").forEach(button => {
+// Ripple effect for download button
+document.querySelectorAll(".btn-download").forEach(button => {
     button.style.position = "relative";
     button.style.overflow = "hidden";
 
@@ -36,7 +36,7 @@ document.querySelectorAll(".btn").forEach(button => {
     });
 });
 
-// 3. Scroll reveal for sections
+// Scroll reveal animation for sections
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -52,7 +52,7 @@ document.querySelectorAll("section").forEach(section => {
     observer.observe(section);
 });
 
-// 4. Back to top button
+// Back to top button
 const topBtn = document.createElement("button");
 topBtn.textContent = "↑";
 topBtn.style.position = "fixed";
@@ -83,7 +83,7 @@ topBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-// 5. Easter egg (Konami code)
+// KONAMI CODE EASTER EGG
 const konamiCode = [
     "ArrowUp", "ArrowUp",
     "ArrowDown", "ArrowDown",
