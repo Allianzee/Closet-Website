@@ -9,23 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// 2. Mobile nav toggle (hamburger menu)
-const nav = document.querySelector("nav");
-const menuButton = document.createElement("div");
-menuButton.className = "menu-btn";
-menuButton.innerHTML = "☰"; // Hamburger icon
-menuButton.style.cursor = "pointer";
-menuButton.style.fontSize = "24px";
-menuButton.style.marginLeft = "auto";
-menuButton.style.padding = "10px";
-
-nav.appendChild(menuButton);
-
-menuButton.addEventListener("click", () => {
-    document.querySelector(".nav-links").classList.toggle("active");
-});
-
-// 3. Button ripple effect
+// 2. Button ripple effect
 document.querySelectorAll(".btn").forEach(button => {
     button.style.position = "relative";
     button.style.overflow = "hidden";
@@ -52,7 +36,7 @@ document.querySelectorAll(".btn").forEach(button => {
     });
 });
 
-// 4. Scroll reveal for sections
+// 3. Scroll reveal for sections
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -68,7 +52,7 @@ document.querySelectorAll("section").forEach(section => {
     observer.observe(section);
 });
 
-// 5. Back to top button
+// 4. Back to top button
 const topBtn = document.createElement("button");
 topBtn.textContent = "↑";
 topBtn.style.position = "fixed";
@@ -99,7 +83,7 @@ topBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-// 6. Easter egg (Konami code)
+// 5. Easter egg (Konami code)
 const konamiCode = [
     "ArrowUp", "ArrowUp",
     "ArrowDown", "ArrowDown",
